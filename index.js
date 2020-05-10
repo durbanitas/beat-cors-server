@@ -8,9 +8,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/ratios/images?q=', (req, res) => {
+app.get('/ratios/images', (req, res) => {
+  for (const key in req.query) {
+    console.log(key, req.query[key])
+  }
   request(
-    { url: 'https://images-api.nasa.gov/search?q=' + 'xs' + '&media_type=image' },
+    { url: 'https://images-api.nasa.gov/search?q=' + req.query },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
