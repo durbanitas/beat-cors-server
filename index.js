@@ -8,7 +8,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/img/id', (req, res) => {
+app.get('/img/:id', (req, res) => {
   const params = req.params
   request(
     { url: 'https://images-api.nasa.gov/search?q=' + params.id },
