@@ -8,9 +8,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/search?q=', (req, res) => {
+app.get('/', (req, res) => {
   request(
-    { url: 'https://images-api.nasa.gov/search?q=' },
+    { url: 'https://images-api.nasa.gov/search?q=' + req.query },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
