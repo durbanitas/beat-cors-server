@@ -8,7 +8,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/ratios/images', (req, res) => {
+app.get('/', (req, res) => {
   for (const key in req.query) {
     console.log(key, req.query[key])
   }
