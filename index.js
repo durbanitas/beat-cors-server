@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 app.get('/imgs/:id', (req, res) => {
   const params = req.params
   request(
-    { url: 'https://images-api.nasa.gov/search?q=' + params.id },
+    { url: 'https://images-api.nasa.gov/search?q=' + params.id + '&media_type=image' },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
