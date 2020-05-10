@@ -8,8 +8,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/ratios/images', (req, res) => {
-  console.log(req, res);
+app.get('/ratios/images?q=', (req, res) => {
+  console.log(req.q);
   request(
     { url: 'https://images-api.nasa.gov/search?q=' + 'xs' + '&media_type=image' },
     (error, response, body) => {
