@@ -8,9 +8,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/jokes/random', (req, res) => {
+app.get('/ratios/images', (req, res, query) => {
   request(
-    { url: 'https://joke-api-strict-cors.appspot.com/jokes/random' },
+    { url: 'https://images-api.nasa.gov/search?q=' + query + '&media_type=image' },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
