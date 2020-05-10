@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 
 app.get('/ratios/images', (req, res) => {
   let query = window.location.search;
-  query.replace('?', '')
+  query = query.replace('?', '')
   console.log(query);
   request(
     { url: 'https://images-api.nasa.gov/search?q=' + query + '&media_type=image' },
