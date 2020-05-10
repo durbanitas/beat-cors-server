@@ -8,7 +8,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/ratios/images', (req, res) => {
+app.get('/ratios/images?', (req, res) => {
+  console.log(query);
   let query = window.location.search;
   query = query.replace('?', '')
   console.log(query);
